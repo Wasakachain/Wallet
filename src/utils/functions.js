@@ -26,22 +26,19 @@ function _hexStringToUint8Array(hexString) {
 
 exports.hexStringToUint8Array = _hexStringToUint8Array;
 
-exports.signTransaction = function(transaction, privKey) {
-    const transactionHash = cryptoJS.SHA256(JSON.stringify(transaction)).toString();
-    const keyPair = secp256k1.keyFromPrivate(privKey);
-    const signature = keyPair.sign(transactionHash);
+exports.signTransaction = function (transaction, privKey) {
+    transaction.transactionDataHash = cryptoJS.SHA256(JSON.stringify(transaction)).toString();
+    const keyPair = secp256k1.keyFromPrivate(privKey.replace('0x',''));
+    const signature = keyPair.sign(transaction.transactionDataHash);
     return [signature.r.toString(16), signature.s.toString(16)];
 }
 
 function descompressPublicKey(pubKeyCompressed){
-    const pubKeyX = pubKeyCompressed.substring(0, 64);
-    const pubKeyYOdd = parseInt(pubKeyCompressed.substring(64));
-    return secp256k1.curve.pointFromX(pubKeyX, pubKeyYOdd);
+    return `${pubKeyCompressed.substr(64,65) === '0' ? '02' : '03'}${pubKeyCompressed.substr(2,64)}`
 }
 
-exports.verifySignature = function(data, publicKey, signature) {
-    const publicKeyPoint = descompressPublicKey(publicKey);
-    const keyPair = secp256k1.keyPair({pub: publicKeyPoint});
+exports.verifySignature = function (data, publicKey, signature) {
+    const keyPair = secp256k1.keyFromPublic(descompressPublicKey(publicKey), 'hex');
     return keyPair.verify(data, {r: signature[0], s: signature[1]})
 }
 
