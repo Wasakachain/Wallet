@@ -1,0 +1,22 @@
+{
+  "name": "wallet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-wallet": "node test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aes-js": "^3.1.2",
+    "bip32": "^2.0.4",
+    "bip39": "^3.0.2",
+    "crypto-js": "^3.1.9-1",
+    "ethers": "^4.0.39",
+    "express": "^4.17.1",
+    "ripemd160": "^2.0.2"
+  }
+}

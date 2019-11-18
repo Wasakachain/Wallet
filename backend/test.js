@@ -4,6 +4,5 @@ const mnemonic = "garage brand trophy shadow river pioneer cushion boil addict b
 
 let wallet = new Wallet(mnemonic);
 
-wallet.encrypt().then(json => {
-    Wallet.fromEncryptedJSON(json).then(wallet => console.log(wallet.getAccounts()));
-});
+const transaction = wallet.accounts[0].signTransaction(wallet.accounts[1].address, 100, 100.1);
+transaction.send('http://localhost:5555').then(console.log).catch(console.log)
