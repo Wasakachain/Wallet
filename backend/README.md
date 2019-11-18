@@ -1,2 +1,0 @@
-# Wallet
-Blockchain Wallet
