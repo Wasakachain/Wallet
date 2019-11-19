@@ -28,13 +28,13 @@ export const hexStringToUint8Array = _hexStringToUint8Array;
 
 export function signTransaction(transaction, privKey) {
     transaction.transactionDataHash = cryptoJS.SHA256(JSON.stringify(transaction)).toString();
-    const keyPair = secp256k1.keyFromPrivate(privKey.replace('0x',''));
+    const keyPair = secp256k1.keyFromPrivate(privKey);
     const signature = keyPair.sign(transaction.transactionDataHash);
     return [signature.r.toString(16), signature.s.toString(16)];
 }
 
 function descompressPublicKey(pubKeyCompressed){
-    return `${pubKeyCompressed.substr(64,65) === '0' ? '02' : '03'}${pubKeyCompressed.substr(2,64)}`
+    return `${pubKeyCompressed.substr(64,65) === '0' ? '02' : '03'}${pubKeyCompressed.substr(0,64)}`
 }
 
 export function verifySignature(data, publicKey, signature) {

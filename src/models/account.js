@@ -19,9 +19,9 @@ function CreateAccount (rootKey, index) {
     let _path = wasaka44.mainPath + '/' + index;
     let _keyPair = secp256k1.keyFromPrivate(_pathFromRootKey.privateKey);
     let _publicKey = getCompressedPublicKey(_keyPair.getPublic());
-    let _address = '0x' + getAddress(_publicKey);
-    _publicKey = '0x' + _publicKey;
-    let _privateKey = '0x' + utils.toHexString(_keyPair.getPrivate().toString('hex'));
+    let _address = getAddress(_publicKey);
+    _publicKey = _publicKey;
+    let _privateKey = utils.toHexString(_keyPair.getPrivate().toString('hex'));
 
     class Account {
         get publicKey() {
