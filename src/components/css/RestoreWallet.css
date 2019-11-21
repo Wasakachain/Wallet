@@ -1,0 +1,86 @@
+.restore-wallet {
+    padding-bottom: 80px;
+}
+
+.restore-from-mnemonic h3 {
+    font-family: Yantramanav-Bold;
+    color: var(--third-color);
+    text-align: center;
+    padding: 48px 0 16px;
+    font-size: 1.6em;
+}
+
+.restore-from-mnemonic .error-input {
+    margin-bottom: 12px;
+    margin-top: 16px;
+}
+
+.restore-from-mnemonic-loader {
+    padding: 80px 0 24px
+}
+
+.restore-from-mnemonic .password-wallet-fieldset {
+    padding-top: 16px;
+}
+
+.restore-wallet-message {
+    color: var(--third-color);
+    text-align: center;
+    padding-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.pick-option {
+    padding-bottom: 0;
+    padding-top: 32px;
+    font-size: 1.6em;
+}
+
+.mnemonic-form {
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+}
+
+.mnemonic-form-inputs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.from-mnemonic-fieldset {
+    width: 25%;
+    padding: 8px 12px;
+}
+
+.from-mnemonic-label {
+    font-family: Yantramanav-Bold;
+    min-width: 25px;
+    width: 25px;
+    padding: 2px;
+    margin-right: 8px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+}
+
+.from-mnemonic-input {
+    width: calc(100% - 33px);
+    padding: 6px 8px;
+    border-radius: 0.6em;
+    border: 1px solid var(--third-color);
+    background-color: var(--third-color);
+}
+
+.from-mnemonic-fieldset.bad-word .from-mnemonic-input {  
+    border: 1px solid rgb(252, 96, 96);
+}
+
+.from-mnemonic-fieldset.bad-word .from-mnemonic-label {  
+    background-color: rgb(252, 96, 96);
+    color: white;
+}
+
+.mnemonic-form-submit-wrapper {
+    padding-top: 24px;
+}

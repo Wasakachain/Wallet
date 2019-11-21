@@ -1,13 +1,295 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: Yantramanav;
+  font-weight: normal;
+  font-style: normal;
+  src: url('./assets/fonts/Yantramanav-Regular.ttf') format('truetype');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@font-face {
+  font-family: Yantramanav-Bold;
+  font-weight: normal;
+  font-style: normal;
+  src: url('./assets/fonts/Yantramanav-Bold.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: Yantramanav-Light;
+  font-weight: normal;
+  font-style: normal;
+  src: url('./assets/fonts/Yantramanav-Light.ttf') format('truetype');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 12px;
+  font: inherit;
+  vertical-align: baseline;
+  font-weight: 100;
+  box-sizing: border-box;
+  font-family: Yantramanav;
+  scroll-behavior: smooth;
+  scrollbar-color: #b6b5b5 rgba(0, 0, 0, 0);
+  scrollbar-width: thin;
+  color: black;
+  color: inherit;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+*:link {
+  color: inherit;
+  text-decoration: none;
+}
+
+*:active {
+  border: none;
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+  border: none;
+}
+
+img {
+  width: 100%;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--third-color);
+font-size: 16px;
+}
+
+#root, body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+:root {
+  --main-color: #4f9502;
+  --secondary-color: #e7d90a;
+  --third-color: #ffffff;
+  --fourth-color: #eeeeee;
+  --fifth-color: #606060;
+}
+
+input {
+  font-size: 16px;
+}
+
+
+/* utils */
+
+.main-background {
+  background: var(--main-color);
+}
+
+.secondary-background {
+  background: var(--secondary-color);
+}
+
+.third-background {
+  background: var(--third-color);
+}
+
+.fourth-background {
+  background: var(--fourth-color);
+}
+
+.fifth-background {
+  background: var(--fifth-color);
+}
+
+.main-color {
+  color: var(--main-color);
+}
+
+.secondary-color {
+  color: var(--secondary-color);
+}
+
+.third-color {
+  color: var(--third-color);
+}
+
+.fourth-color {
+  color: var(--fourth-color);
+}
+
+.fifth-color {
+  color: var(--fifth-color);
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.max-width {
+  max-width: 1200px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex-between {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.flex-center.wrap,
+.flex.wrap,
+.flex-between.wrap,
+.wrap {
+  flex-wrap: wrap;
+}
+
+.overflow-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.unlogged-route-wrapper {
+  background: var(--main-color);
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.error-input {
+    background: rgba(248, 20, 20, 0.836);
+    color: rgb(255, 226, 226);
+    padding: 8px;
+    margin-bottom: 24px;
+}
+
+
+/* loader */
+
+.loading-wallet {
+  padding-bottom: 48px;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  padding: 40px 0;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: calc(50% - 6.5px);
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--main-color);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis.secondary-color div {
+  background: var(--secondary-color);
+}
+.lds-ellipsis.third-color div {
+  background: var(--third-color);
+}
+.lds-ellipsis.fourth-color div {
+  background: var(--fourth-color);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+  transform: scale(0);
+  }
+  100% {
+  transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+  transform: scale(1);
+  }
+  100% {
+  transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+  transform: translate(0, 0);
+  }
+  100% {
+  transform: translate(24px, 0);
+  }
+}
+
+/* loader */

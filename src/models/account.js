@@ -33,9 +33,6 @@ function CreateAccount (rootKey, index) {
         get address() {
             return _address;
         }
-        get path() {
-            return _address;
-        }
         getData() {
             return {
                 publicKey: _publicKey,

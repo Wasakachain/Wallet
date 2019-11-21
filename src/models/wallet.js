@@ -3,7 +3,7 @@ import {
     loadAccounts, generateMnemonic,
     decryptMnemonic, encryptMnemonic
 } from '../utils/functions';
-import { ethers } from 'ethers';
+import Ajax from '../utils/ajax';
 
 
 
@@ -27,8 +27,6 @@ function Wallet(mnemonic) {
     class SingleWallet {
         constructor() {
             this.accounts = loadAccounts(_mnemonic, 5);
-            console.log(new ethers.Wallet.fromMnemonic(_mnemonic, "m/44'/696969'/0'/0/0"));
-            console.log(this.accounts[0].getData());
         }
 
         get mnemonic() {
@@ -37,6 +35,22 @@ function Wallet(mnemonic) {
 
         getAccounts() {
             return this.accounts.map(account => account.getData());
+        }
+
+        getBalances(providerUrl) {
+            const ajax = new Ajax(providerUrl+'/addresses/balance', {
+                method: 'post',
+                body: {
+                    addresses: this.accounts.map(account => account.address)
+                },
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            return {
+                promise: ajax.result(),
+                abort: ajax.abort
+            }
         }
 
         encrypt(password) {

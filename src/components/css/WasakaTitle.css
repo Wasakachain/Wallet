@@ -1,0 +1,38 @@
+h1 {
+    display: flex;
+}
+.icon-container {
+    width: 40px;
+}
+.title-wasaka {
+    text-transform: capitalize;
+    color: var(--third-color);
+}
+.title-faucet {
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: var(--secondary-color);
+}
+.title-wasaka,
+.title-faucet {
+    font-family: Yantramanav-Bold;
+    font-size: 2.5em;
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 468px) {
+    h1 {
+        padding-bottom: 8px;
+    }
+    .icon-container {
+        width: 34px;
+    }
+    .title-wasaka,
+    .title-faucet {
+        font-family: Yantramanav-Bold;
+        font-size: 2em;
+    }
+}

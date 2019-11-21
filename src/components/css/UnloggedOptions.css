@@ -1,0 +1,26 @@
+.unlogged-options {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.unlogged-option-wrapper {
+    padding: 8px;
+}
+
+.unlogged-option {
+    cursor: pointer;
+    font-family: Yantramanav-Bold;
+    display: block;
+    text-transform: uppercase;
+    border-radius: 0.6em;
+    padding: 8px 16px;
+    background-color: var(--secondary-color);
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.unlogged-option.option-disabled,
+.unlogged-option:disabled {
+    color: var(--fifth-color);
+    background-color: var(--fourth-color);
+}
