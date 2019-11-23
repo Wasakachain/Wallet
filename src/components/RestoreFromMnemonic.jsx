@@ -50,7 +50,7 @@ class RestoreFromMnemonic extends React.Component {
             this.props.setLoading(true);
             this.props.encryptWallet(mnemonic, input.value).then(() => {
                 this.props.history.replace('/');
-            }).catch(catchError);
+            }).catch(this.catchError);
         }
     }
 
@@ -76,7 +76,7 @@ class RestoreFromMnemonic extends React.Component {
                         {this.words.map(this.renderInput)}
                     </div>
                     <PasswordFieldset />
-                    {error && (
+                    {typeof error === 'string' && (
                         <p className="error-input">{error}</p>
                     )}
                     <div className="mnemonic-form-submit-wrapper flex-center">

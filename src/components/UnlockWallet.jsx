@@ -43,7 +43,7 @@ class UnlockWallet extends React.Component {
                 {!hideTitle && (
                     <h2>Unlock Your Wallet</h2>
                 )}
-                {error && (
+                {typeof error === 'string' && (
                     <p className="error-input">{error}</p>
                 )}
                 {loading ? (

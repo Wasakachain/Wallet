@@ -3,9 +3,19 @@ import { WASA } from '../configs/global';
 import BigNumber from 'bignumber.js';
 import Loader from '../components/Loader';
 
-export function getTotalBalance(totalBalance, className = '') {
-    if(typeof totalBalance === 'string') {
-        return `${new BigNumber(totalBalance).dividedBy(WASA)} WASA`;
+export function getFormatedBalance(balance, className = '') {
+    let number = '0';
+    if(typeof balance === 'string') {
+        number = `${new BigNumber(balance).dividedBy(WASA)}`;
     }
+    return (
+        <React.Fragment>
+            {number}
+            <span className={`wasa-balance-decorator ${className}`}>WASA</span>
+        </React.Fragment>
+    )
+}
+
+export function getBalanceLoader(className = '') {
     return <Loader className={`total-balance-loader ${className}`}/>;
 }

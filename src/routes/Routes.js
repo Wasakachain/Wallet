@@ -75,7 +75,8 @@ class Routes extends Component {
                     {allRoutes[routes].map(routeProps => (
                         <Route {...routeProps} />
                     ))}
-                    <Route render={() => this.render404() } />
+                    {/*<Route render={() => this.render404() } />*/}
+                    <Route render={() => <Redirect to="/"/> }/>
                 </Switch>
             </Root>
         );

@@ -10,6 +10,14 @@ import BigNumber from 'bignumber.js';
 import { root } from '../configs/global';
 const secp256k1 = new elliptic.ec('secp256k1');
 
+
+export function isValidAddress(address) {
+    const unprefixedAddress = address.replace(/^0x/, '');
+    if (/^([A-Fa-f0-9]{40})$/.test(unprefixedAddress))
+        return unprefixedAddress;
+    else
+        return false;
+}
 export function toHexString (value) {
     let hexString = value.toString(16);
     let padding = 64 - hexString.length;
@@ -31,7 +39,7 @@ function _hexStringToUint8Array(hexString) {
 export const hexStringToUint8Array = _hexStringToUint8Array;
 
 export function signTransaction(transaction, privKey) {
-    transaction.transactionDataHash = cryptoJS.SHA256(JSON.stringify(transaction)).toString();
+    transaction.transactionDataHash = cryptoJS.SHA256(JSON.stringify(transaction.getData())).toString();
     const keyPair = secp256k1.keyFromPrivate(privKey);
     const signature = keyPair.sign(transaction.transactionDataHash);
     return [signature.r.toString(16), signature.s.toString(16)];

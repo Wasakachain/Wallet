@@ -1,6 +1,5 @@
 .account-detail {
     display: flex;
-    /* background-color: var(--main-color); */
     align-items: center;
     background-color: #fafafa;
     border: 1px solid #eeeeee;
@@ -32,5 +31,34 @@
 }
 
 .account-balance {
+    font-family: Yantramanav-Bold;
+    letter-spacing: 0.5px;
+    font-size: 1.4em;
+}
 
+
+@media (max-width: 768px) {
+    .account-detail {
+        flex-direction: column;
+        padding: 8px;
+    }
+
+    .account-title {
+        text-align: center;
+    }
+
+    .account-addresss-wrapper {
+        padding-bottom: 16px;
+    }
+    
+
+    .account-balance-wrapper,
+    .account-addresss-wrapper {
+        width: 100%;
+    }
+
+    .account-addresss {
+        text-align: center;
+        word-break: break-all;
+    }
 }

@@ -1,0 +1,46 @@
+.send-tx-main,
+.unlock-account-positioner {
+    width: 96%;
+    margin: 0 auto;
+}
+
+.send-tx-main {
+    padding: 24px 0 100px;
+    max-width: 1080px;
+}
+
+.send-tx-main.locked-account {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.unlock-account-positioner {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+}
+
+.unlock-account-wrapper {
+    background: var(--main-color);
+    padding: 16px 24px;
+    border-radius: 0.6em;
+    box-shadow: 0 0 11px -3px rgba(0, 0, 0, 0.65);
+}
+
+.unlock-account-wrapper .sign-transaction-submit {
+    padding-bottom: 48px;
+}
+
+.unlock-account-wrapper h3 {
+    color: var(--third-color);
+    font-size: 1.6em;
+    text-align: center;
+    padding-bottom: 24px;
+}
+
+.unlock-account-wrapper .create-wallet-button-wrapper {
+    padding-bottom: 12px;
+}

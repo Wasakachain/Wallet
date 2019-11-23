@@ -1,0 +1,98 @@
+.send-tx-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.send-tx-form .error-input {
+    margin: 16px 0 0;
+}
+
+.send-tx-form-wrapper {
+    background-color: #fafafa;
+    border: 1px solid #eeeeee;
+    border-radius: 0.8em;
+    padding: 8px 16px;
+    box-shadow: 0 0 12px -3px rgba(0, 0, 0, 0.45);
+}
+
+.send-tx-form-wrapper.success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    padding: 24px 16px;
+}
+
+.send-tx-form-wrapper.success-message p:first-of-type{
+    color: var(--main-color);
+    font-size: 1.4em;
+    padding-bottom: 16px;
+}
+
+.send-tx-form-wrapper.success-message a{
+    width: 100%;
+    word-break: break-all;
+    color: var(--main-color);
+    text-align: center;
+}
+
+.send-tx-form-wrapper.success-message a:hover{
+    text-decoration: underline;
+}
+
+.send-tx-fieldset {
+    display: flex;
+    padding: 8px 0;
+}
+
+.send-tx-label {
+    color: var(--main-color);
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.send-tx-input {
+    margin: 0 auto;
+    max-width: 420px;
+    border-radius: 0.6em;
+    border: 3px solid #eeeeee;
+    padding: 6px 16px;
+}
+
+.send-tx-input:disabled {
+    background:rgb(235, 235, 228)
+}
+
+.send-tx-input:not(#value-input){
+    width: 100%;
+}
+
+.sign-transaction-submit {
+    padding-top: 24px;
+}
+
+.signed-tx {
+    margin-top: 32px;
+    background: white;
+    border-radius: 0.6em;
+    border: 3px solid #eeeeee;
+    padding: 6px 16px;
+    max-height: 220px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.signed-tx-sign-text,
+.signed-tx-text {
+    word-break: break-all;
+}
+.signed-tx-text {
+    padding-left: 16px;
+}
+.signed-tx-key {
+    font-family: Yantramanav-Bold;
+    padding-right: 8px;
+}
+.signed-tx-sign-text {
+    padding-left: 32px;
+}
+

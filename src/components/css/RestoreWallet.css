@@ -84,3 +84,15 @@
 .mnemonic-form-submit-wrapper {
     padding-top: 24px;
 }
+
+@media (max-width: 768px) {
+    .from-mnemonic-fieldset {
+        width: 33%;
+    }
+}
+
+@media (max-width: 468px) {
+    .from-mnemonic-fieldset {
+        width: 50%;
+    }
+}

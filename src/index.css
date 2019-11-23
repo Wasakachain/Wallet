@@ -214,10 +214,25 @@ input {
 }
 
 .error-input {
-    background: rgba(248, 20, 20, 0.836);
-    color: rgb(255, 226, 226);
-    padding: 8px;
-    margin-bottom: 24px;
+  background: rgba(248, 20, 20, 0.836);
+  color: rgb(255, 226, 226);
+  padding: 8px;
+  margin-bottom: 24px;
+}
+
+.wasa-balance-decorator {
+  padding-left: 8px;
+  font-family: inherit;
+  font-size: 0.7em;
+}
+
+.balance-main h2,
+.send-tx-main h2 {
+    font-family: Yantramanav-Bold;
+    font-size: 2.5em;
+    text-align: center;
+    color: var(--main-color);
+    padding-bottom: 24px;
 }
 
 
@@ -293,3 +308,9 @@ input {
 }
 
 /* loader */
+
+@media (max-width: 468px) {
+  body {
+    font-size: 14px;
+  }
+}

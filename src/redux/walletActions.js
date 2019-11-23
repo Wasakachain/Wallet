@@ -28,6 +28,8 @@ export const actions = {
     ENCRYPT_WALLET: 'ENCRYPT_WALLET',
     DECRYPT_WALLET: 'DECRYPT_WALLET',
     SET_LOADING: 'SET_LOADING',
+    GET_BALANCES: 'GET_BALANCES',
+    LOGOUT: 'LOGOUT',
 };
 
 export const setIsMobile = () => {
@@ -46,25 +48,6 @@ export const setIsAnimating = (isAnimating) => ({
     type: actions.SET_IS_ANIMATING_TRANSITION,
     isAnimating
 });
-
-export const setModalVisibility = (modalVisibility, modalTitle = 'titulo', modalMessage = null, modalOptions = {}) => {
-    return {
-    type: actions.SET_MODAL_VISIBILITY,
-    modalVisibility,
-    modalTitle,
-    modalMessage,
-    modalOptions
-}};
-
-export const hideModal = () => ({
-    type: actions.SET_MODAL_VISIBILITY,
-    modalVisibility: false,
-})
-
-export const destroyModal = () => ({
-    type: actions.SET_MODAL_VISIBILITY,
-    modalVisibility: null,
-})
 
 export function setLoading(flag) {
     return {
@@ -104,11 +87,11 @@ export const decryptWallet = function(password) {
     }
 }
 
-export function getBalances(ajax, nodeUrl, accounts) {
+export function getBalances(ajax, nodeUrl, addresses) {
     ajax.initAjax(nodeUrl + '/addresses/balance', {
         method: 'post',
         body: {
-            accounts
+            addresses
         },
         headers: {
             'Content-Type': 'application/json'
@@ -117,6 +100,12 @@ export function getBalances(ajax, nodeUrl, accounts) {
     return {
         type: actions.GET_BALANCES,
         payload: ajax.result()
+    }
+}
+
+export function logout() {
+    return {
+        type: actions.LOGOUT
     }
 }
 

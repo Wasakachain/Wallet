@@ -1,12 +1,12 @@
 import React from 'react';
-import { getTotalBalance } from '../utils/balanceViewFunctions';
+import { getBalanceLoader, getFormatedBalance } from '../utils/balanceViewFunctions';
 // css
 import './css/AccountDetails.css'
 
 
 class AccountDetails extends React.Component {
     render() {
-        const { account, index } = this.props;
+        const { account, index, loadingBalances } = this.props;
         return (
             <div className="account-detail">
                 <div className="account-addresss-wrapper">
@@ -17,9 +17,11 @@ class AccountDetails extends React.Component {
                 </div>
                 <div className="account-balance-wrapper">
                     <p className="account-title">Balance</p>
-                    <p className="account-balance">
-                        {getTotalBalance(account.balance)}
-                    </p>
+                    {loadingBalances ? (
+                        getBalanceLoader() 
+                    ) : (
+                        <p className="account-balance">{getFormatedBalance(account.confirmedBalance)}</p>
+                    )}
                 </div>
             </div>
         )

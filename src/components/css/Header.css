@@ -9,12 +9,6 @@
     margin: 0 12px;
 }
 
-.header-link:hover,
-.header-link-active {
-    padding-bottom: 4px;
-    border-bottom: 2px solid var(--secondary-color);
-}
-
 .header-link {
     cursor: pointer;
     letter-spacing: 0.5px;
@@ -24,6 +18,12 @@
     padding: 6px 0;
     color: var(--third-color);
     background-color: transparent;
+}
+
+.header-link:hover,
+.header-link-active {
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 @media (max-width: 768px) {

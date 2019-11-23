@@ -1,10 +1,29 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import WasakaTitle from './WasakaTitle';
+import { logout } from '../redux/walletActions';
 // css
 import './css/Header.css'
 
+
+
+function RenderLogout(props) {
+    return (
+        <div  className="header-link-wrapper">
+            <button className="header-link" type="button" onClick={props.logout}>
+                Log out
+            </button>
+        </div>
+    )
+}
+const LogoutButton = connect(
+    null,
+    {
+        logout
+    }
+)(RenderLogout);
 
 const links = [
     {
@@ -27,23 +46,13 @@ class Header extends React.Component {
         this.renderLink = this.renderLink.bind(this);
     }
 
-    renderLink({to, key, text}) {
+    renderLink({to, key, text, home}) {
         const { location } = this.props;
         return (
-            <div key={key} className={`header-link-wrapper${location.pathname === to ? ' header-link-active' : ''}`}>
-                <Link className="header-link" to={to}>
+            <div key={key} className="header-link-wrapper" >
+                <Link className={`header-link${location.pathname === to || (location.pathname === '/' && home) ? ' header-link-active' : ''}`} to={to}>
                     {text}
                 </Link>
-            </div>
-        )
-    }
-
-    renderLogout() {
-        return (
-            <div  className="header-link-wrapper">
-                <button className="header-link" type="button">
-                    Log out
-                </button>
             </div>
         )
     }
@@ -56,7 +65,7 @@ class Header extends React.Component {
                     <WasakaTitle />
                     <div className="header-links-container flex">
                         {links.map(this.renderLink)}
-                        {this.renderLogout()}
+                        <LogoutButton/>
                     </div>
                 </header>
             )
